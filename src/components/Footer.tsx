@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
-    <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-gaming-electric/20">
+    <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-seafoam/20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">
-              <span className="bg-gradient-to-r from-gaming-electric to-gaming-purple bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">
                 Flowlog
               </span>
             </h3>
@@ -25,21 +25,9 @@ const Footer = () => {
             <div className="space-y-2">
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
+                className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
               >
                 Download App
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
-              >
-                Watch Demo
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
-              >
-                Development Journey
               </Button>
             </div>
           </div>
@@ -50,28 +38,22 @@ const Footer = () => {
             <div className="space-y-2">
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
+                className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
               >
                 Send Feedback
               </Button>
               <Button 
                 variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
+                className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
               >
                 Contact Developer
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-gaming-neon hover:bg-gaming-dark/50 p-0"
-              >
-                Join Community
               </Button>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gaming-electric/10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+        <div className="pt-8 border-t border-seafoam/10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-gray-500 text-sm">
             © 2024 Flowlog. Built with passion for gamers.
           </p>
@@ -79,14 +61,14 @@ const Footer = () => {
             <Button 
               variant="ghost" 
               size="sm"
-              className="text-gray-500 hover:text-gaming-neon p-0"
+              className="text-gray-500 hover:text-seafoam p-0"
             >
               Privacy
             </Button>
             <Button 
               variant="ghost" 
               size="sm"
-              className="text-gray-500 hover:text-gaming-neon p-0"
+              className="text-gray-500 hover:text-seafoam p-0"
             >
               Terms
             </Button>

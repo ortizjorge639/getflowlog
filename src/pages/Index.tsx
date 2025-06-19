@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import CTASection from '@/components/CTASection';
@@ -21,12 +22,14 @@ const Index = () => {
       {/* Animated background */}
       <div className="fixed inset-0 bg-gradient-to-br from-gaming-dark via-slate-900 to-gaming-dark">
         <div 
-          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,255,165,0.1),transparent_50%)]"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         />
       </div>
 
-      <div className="relative z-10">
+      <Header />
+      
+      <div className="relative z-10 pt-16">
         <HeroSection />
         <FeaturesSection />
         <CTASection />

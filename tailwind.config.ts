@@ -70,6 +70,11 @@ export default {
 					purple: '#8b5cf6',
 					neon: '#06ffa5',
 					glow: '#3b82f6'
+				},
+				seafoam: {
+					DEFAULT: '#06ffa5',
+					light: '#4fffbc',
+					dark: '#05cc84'
 				}
 			},
 			borderRadius: {
@@ -106,10 +111,10 @@ export default {
 				},
 				'glow-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)'
+						boxShadow: '0 0 20px rgba(6, 255, 165, 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)'
+						boxShadow: '0 0 40px rgba(6, 255, 165, 0.6)'
 					}
 				},
 				'float': {

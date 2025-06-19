@@ -18,7 +18,7 @@
     --popover: 218 23% 5%;
     --popover-foreground: 220 15% 95%;
 
-    --primary: 217 91% 60%;
+    --primary: 160 100% 51%;
     --primary-foreground: 220 15% 5%;
 
     --secondary: 218 23% 8%;
@@ -27,7 +27,7 @@
     --muted: 218 23% 8%;
     --muted-foreground: 220 15% 65%;
 
-    --accent: 217 91% 60%;
+    --accent: 160 100% 51%;
     --accent-foreground: 220 15% 5%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,18 +35,18 @@
 
     --border: 218 23% 12%;
     --input: 218 23% 12%;
-    --ring: 217 91% 60%;
+    --ring: 160 100% 51%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 218 23% 3%;
     --sidebar-foreground: 220 15% 85%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary: 160 100% 51%;
     --sidebar-primary-foreground: 220 15% 5%;
     --sidebar-accent: 218 23% 8%;
     --sidebar-accent-foreground: 220 15% 85%;
     --sidebar-border: 218 23% 12%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 160 100% 51%;
   }
 }
 
@@ -67,16 +67,16 @@
 
 @layer utilities {
   .glow-effect {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 30px rgba(6, 255, 165, 0.3);
   }
   
   .text-glow {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 20px rgba(6, 255, 165, 0.5);
   }
   
   .gradient-border {
     position: relative;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba(6, 255, 165, 0.1), rgba(79, 255, 188, 0.1));
     border: 1px solid transparent;
   }
   
@@ -85,7 +85,7 @@
     position: absolute;
     inset: 0;
     padding: 1px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, #06ffa5, #4fffbc);
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;

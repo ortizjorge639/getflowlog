@@ -23,11 +23,11 @@ const HeroSection = () => {
               {/* App Name & Tagline */}
               <div className="space-y-4">
                 <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white text-glow">
-                  <span className="bg-gradient-to-r from-gaming-electric to-gaming-purple bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">
                     Flowlog
                   </span>
                 </h1>
-                <p className="text-xl sm:text-2xl text-gaming-neon font-medium">
+                <p className="text-xl sm:text-2xl text-seafoam font-medium">
                   Master Your Gaming Backlog
                 </p>
               </div>
@@ -44,72 +44,42 @@ const HeroSection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
                     size="lg" 
-                    className="bg-gradient-to-r from-gaming-electric to-gaming-purple hover:from-gaming-purple hover:to-gaming-electric text-white px-8 py-4 text-lg font-semibold rounded-xl glow-effect hover:animate-glow-pulse transition-all duration-300 transform hover:scale-105"
+                    className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-xl glow-effect hover:animate-glow-pulse transition-all duration-300 transform hover:scale-105"
                   >
                     Download Flowlog
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg"
-                    className="border-gaming-electric text-gaming-electric hover:bg-gaming-electric hover:text-white px-8 py-4 text-lg rounded-xl transition-all duration-300"
+                    className="border-seafoam text-seafoam hover:bg-seafoam hover:text-gaming-dark px-8 py-4 text-lg rounded-xl transition-all duration-300"
                   >
-                    Watch Demo
+                    Contact Us
                   </Button>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Side Stats Cards */}
-          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            <StatsCard 
-              number="1000+" 
-              label="Games Completed" 
-              delay="0.2s"
-            />
-            <StatsCard 
-              number="50+" 
-              label="Hours Saved" 
-              delay="0.4s"
-            />
-            <StatsCard 
-              number="24/7" 
-              label="Progress Tracking" 
-              delay="0.6s"
-            />
+          {/* App Screenshots */}
+          <div className="lg:col-span-4 flex justify-center items-center">
+            <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <img 
+                src="/lovable-uploads/b4f49c9a-fa6d-4477-bfd8-0680e471dce5.png" 
+                alt="Flowlog App Screenshot" 
+                className="max-w-full h-auto rounded-2xl shadow-2xl border border-seafoam/20"
+              />
+            </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="flex justify-center mt-20">
           <div className="animate-bounce">
-            <ArrowDown className="w-6 h-6 text-gaming-electric" />
+            <ArrowDown className="w-6 h-6 text-seafoam" />
           </div>
         </div>
       </div>
     </section>
-  );
-};
-
-const StatsCard = ({ number, label, delay }: { number: string; label: string; delay: string }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), parseFloat(delay) * 1000);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  return (
-    <Card 
-      className={`p-6 bg-gaming-dark/50 border-gaming-electric/20 backdrop-blur-sm transition-all duration-700 hover:border-gaming-electric/40 hover:bg-gaming-dark/70 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
-      <div className="text-center space-y-2">
-        <div className="text-2xl font-bold text-gaming-neon">{number}</div>
-        <div className="text-sm text-gray-400">{label}</div>
-      </div>
-    </Card>
   );
 };
 
