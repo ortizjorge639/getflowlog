@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -52,6 +54,7 @@ const HeroSection = () => {
                     variant="outline" 
                     size="lg"
                     className="border-seafoam text-seafoam hover:bg-seafoam hover:text-gaming-dark px-8 py-4 text-lg rounded-xl transition-all duration-300"
+                    onClick={() => navigate('/contact')}
                   >
                     Contact Us
                   </Button>
@@ -64,9 +67,9 @@ const HeroSection = () => {
           <div className="lg:col-span-4 flex justify-center items-center">
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <img 
-                src="/lovable-uploads/b4f49c9a-fa6d-4477-bfd8-0680e471dce5.png" 
-                alt="Flowlog App Screenshot" 
-                className="max-w-full h-auto rounded-2xl shadow-2xl border border-seafoam/20"
+                src="/lovable-uploads/b0f631cb-803f-4404-bb85-8e5226c287c5.png" 
+                alt="Flowlog App Dashboard Screenshot" 
+                className="max-w-full h-auto w-80 lg:w-96 rounded-3xl shadow-2xl border border-seafoam/20 glow-effect"
               />
             </div>
           </div>
