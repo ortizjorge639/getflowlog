@@ -1,11 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import HeroSection from '@/components/HeroSection';
+import FeaturesSection from '@/components/FeaturesSection';
+import CTASection from '@/components/CTASection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gaming-dark overflow-x-hidden">
+      {/* Animated background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-gaming-dark via-slate-900 to-gaming-dark">
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        />
+      </div>
+
+      <div className="relative z-10">
+        <HeroSection />
+        <FeaturesSection />
+        <CTASection />
+        <Footer />
       </div>
     </div>
   );
