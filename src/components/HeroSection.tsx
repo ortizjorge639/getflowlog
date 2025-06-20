@@ -47,8 +47,9 @@ const HeroSection = () => {
                   <Button 
                     size="lg" 
                     className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-xl glow-effect hover:animate-glow-pulse transition-all duration-300 transform hover:scale-105"
+                    onClick={() => navigate('/waitlist')}
                   >
-                    Download Flowlog
+                    Join Waitlist
                   </Button>
                   <Button 
                     variant="outline" 

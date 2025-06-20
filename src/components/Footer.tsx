@@ -1,7 +1,10 @@
 
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="py-16 px-4 sm:px-6 lg:px-8 border-t border-seafoam/20">
       <div className="max-w-7xl mx-auto">
@@ -26,8 +29,9 @@ const Footer = () => {
               <Button 
                 variant="ghost" 
                 className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
+                onClick={() => navigate('/waitlist')}
               >
-                Download App
+                Join Waitlist
               </Button>
             </div>
           </div>
@@ -39,12 +43,14 @@ const Footer = () => {
               <Button 
                 variant="ghost" 
                 className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
+                onClick={() => navigate('/contact')}
               >
                 Send Feedback
               </Button>
               <Button 
                 variant="ghost" 
                 className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
+                onClick={() => navigate('/contact')}
               >
                 Contact Developer
               </Button>

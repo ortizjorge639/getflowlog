@@ -148,8 +148,9 @@ const HowItWorksSection = () => {
           <Button 
             size="lg"
             className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-xl glow-effect hover:animate-glow-pulse transition-all duration-300 transform hover:scale-105"
+            onClick={() => window.location.href = '/waitlist'}
           >
-            Download Flowlog Now
+            Join Waitlist
           </Button>
         </div>
       </div>
