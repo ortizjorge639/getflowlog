@@ -50,7 +50,7 @@ const Waitlist = () => {
                 Join the <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">Flowlog</span> Waitlist
               </h1>
               <p className="text-lg text-gray-300">
-                Be the first to know when Flowlog launches and get early access to master your gaming backlog.
+                Lock in your early access to the Flowlog Beta launch today!
               </p>
             </div>
 
