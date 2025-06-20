@@ -109,7 +109,7 @@ const HowItWorksSection = () => {
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-full h-64 object-cover rounded-lg border border-seafoam/10 group-hover:border-seafoam/30 transition-all duration-300"
+                          className="w-full h-auto object-contain rounded-lg border border-seafoam/10 group-hover:border-seafoam/30 transition-all duration-300"
                         />
                       </div>
                       
