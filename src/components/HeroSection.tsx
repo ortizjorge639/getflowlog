@@ -1,6 +1,5 @@
 
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { ArrowDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,72 +13,66 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
-      <div className="max-w-7xl mx-auto w-full">
-        {/* Wide Bento Box Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-12 overflow-hidden">
+      <div className="max-w-5xl mx-auto w-full flex flex-col items-center text-center">
+        
+        {/* Text Content - Above Image */}
+        <div className={`space-y-6 mb-12 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'}`}>
+          {/* App Name */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent text-glow">
+              Flowlog
+            </span>
+          </h1>
           
-          {/* Main Hero Content - Takes up majority of space */}
-          <div className="lg:col-span-8 space-y-8">
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              {/* App Name & Tagline */}
-              <div className="space-y-4">
-                <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white text-glow">
-                  <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">
-                    Flowlog
-                  </span>
-                </h1>
-                <p className="text-xl sm:text-2xl text-seafoam font-medium">
-                  Master Your Gaming Backlog
-                </p>
-              </div>
+          {/* Tagline */}
+          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed">
+            Master Your Gaming Backlog
+          </p>
+          
+          {/* Description */}
+          <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto">
+            Stop drowning in unfinished games. Organize, track, and actually complete your backlog.
+          </p>
 
-              {/* Pitch */}
-              <div className="space-y-6">
-                <p className="text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
-                  Stop drowning in unfinished games. Flowlog helps you organize, track, and 
-                  actually complete your gaming backlog with intelligent progress tracking 
-                  and real-time insights.
-                </p>
-
-                {/* Main CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-xl glow-effect hover:animate-glow-pulse transition-all duration-300 transform hover:scale-105"
-                    onClick={() => navigate('/waitlist')}
-                  >
-                    Join Waitlist
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="border-seafoam text-seafoam hover:bg-seafoam hover:text-gaming-dark px-8 py-4 text-lg rounded-xl transition-all duration-300"
-                    onClick={() => navigate('/contact')}
-                  >
-                    Contact Us
-                  </Button>
-                </div>
-              </div>
-            </div>
+          {/* CTA Buttons */}
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center pt-4 transition-all duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-full glow-effect hover:animate-glow-pulse transition-all duration-500 transform hover:scale-105"
+              onClick={() => navigate('/waitlist')}
+            >
+              Join Waitlist
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-seafoam/50 text-seafoam hover:bg-seafoam/10 hover:border-seafoam px-8 py-4 text-lg rounded-full transition-all duration-500"
+              onClick={() => navigate('/contact')}
+            >
+              Contact Us
+            </Button>
           </div>
+        </div>
 
-          {/* App Screenshots */}
-          <div className="lg:col-span-4 flex justify-center items-center">
-            <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <img 
-                src="/lovable-uploads/b0f631cb-803f-4404-bb85-8e5226c287c5.png" 
-                alt="Flowlog App Dashboard Screenshot" 
-                className="max-w-full h-auto w-80 lg:w-96 rounded-3xl shadow-2xl border border-seafoam/20 glow-effect"
-              />
-            </div>
+        {/* Hero Image - Center Stage */}
+        <div className={`w-full max-w-4xl mx-auto transition-all duration-1200 delay-500 ease-out ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'}`}>
+          <div className="relative">
+            {/* Glow Effect Behind Image */}
+            <div className="absolute inset-0 bg-gradient-to-t from-seafoam/20 via-seafoam/5 to-transparent blur-3xl scale-110 -z-10" />
+            
+            <img 
+              src="/lovable-uploads/hero-mockup.png" 
+              alt="Flowlog App Dashboard on MacBook" 
+              className="w-full h-auto rounded-2xl drop-shadow-2xl"
+            />
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex justify-center mt-20">
+        <div className={`mt-12 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="animate-bounce">
-            <ArrowDown className="w-6 h-6 text-seafoam" />
+            <ArrowDown className="w-6 h-6 text-seafoam/60" />
           </div>
         </div>
       </div>
