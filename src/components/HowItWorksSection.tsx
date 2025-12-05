@@ -1,17 +1,23 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
 
 const HowItWorksSection = () => {
   const [confetti, setConfetti] = useState(false);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
 
   const steps = [
     {
@@ -44,6 +50,38 @@ const HowItWorksSection = () => {
     setConfetti(true);
     setTimeout(() => setConfetti(false), 3000);
   };
+
+  const openLightbox = (image: string, title: string) => {
+    setLightboxImage({ src: image, alt: title });
+    setLightboxOpen(true);
+  };
+
+  // Auto-play every 5 seconds
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+  // Track current slide
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on('select', onSelect);
+    onSelect();
+
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api]);
 
   useEffect(() => {
     if (confetti) {
@@ -78,41 +116,48 @@ const HowItWorksSection = () => {
           </p>
         </div>
 
-        <Carousel className="w-full max-w-6xl mx-auto">
+        <Carousel 
+          className="w-full max-w-4xl mx-auto"
+          setApi={setApi}
+          opts={{ loop: true }}
+        >
           <CarouselContent>
             {steps.map((step) => (
-              <CarouselItem key={step.id} className="md:basis-1/2 lg:basis-1/2">
+              <CarouselItem key={step.id} className="basis-full">
                 <div className="p-4">
                   <Card 
-                    className="bg-gaming-dark/50 border border-seafoam/20 backdrop-blur-sm hover:border-seafoam/40 transition-all duration-300 group cursor-pointer overflow-hidden"
-                    onClick={() => step.id === 4 && triggerConfetti()}
+                    className="bg-gaming-dark/50 border border-seafoam/20 backdrop-blur-sm hover:border-seafoam/40 transition-all duration-300 group overflow-hidden"
                   >
-                    <div className="p-6">
+                    <div className="p-6 sm:p-8">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-seafoam to-seafoam-light flex items-center justify-center text-gaming-dark font-bold">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-seafoam to-seafoam-light flex items-center justify-center text-gaming-dark font-bold text-lg">
                           {step.id}
                         </div>
-                        <h3 className="text-xl font-semibold text-white group-hover:text-seafoam transition-colors">
+                        <h3 className="text-2xl font-semibold text-white group-hover:text-seafoam transition-colors">
                           {step.title}
                         </h3>
                       </div>
                       
-                      <div className="mb-6">
+                      <div 
+                        className="mb-6 cursor-zoom-in"
+                        onClick={() => openLightbox(step.image, step.title)}
+                      >
                         <img 
                           src={step.image} 
                           alt={step.title}
-                          className="w-full h-auto object-contain rounded-lg border border-seafoam/10 group-hover:border-seafoam/30 transition-all duration-300"
+                          className="w-full h-auto object-contain rounded-lg border border-seafoam/10 group-hover:border-seafoam/30 transition-all duration-300 hover:scale-[1.02]"
                         />
+                        <p className="text-xs text-gray-500 mt-2 text-center">Click image to enlarge</p>
                       </div>
                       
-                      <p className="text-gray-400 leading-relaxed">
+                      <p className="text-gray-400 leading-relaxed text-lg text-center">
                         {step.description}
                       </p>
                       
                       {step.id === 4 && (
-                        <div className="mt-4">
+                        <div className="mt-6 text-center">
                           <Button 
-                            size="sm"
+                            size="lg"
                             className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark font-semibold"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -129,9 +174,22 @@ const HowItWorksSection = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-seafoam/30 text-seafoam hover:bg-seafoam hover:text-gaming-dark" />
-          <CarouselNext className="border-seafoam/30 text-seafoam hover:bg-seafoam hover:text-gaming-dark" />
+          <CarouselPrevious className="border-seafoam/30 text-seafoam hover:bg-seafoam hover:text-gaming-dark -left-4 sm:-left-12" />
+          <CarouselNext className="border-seafoam/30 text-seafoam hover:bg-seafoam hover:text-gaming-dark -right-4 sm:-right-12" />
         </Carousel>
+
+        {/* Slide Indicators */}
+        <div className="flex justify-center gap-2 mt-6">
+          {steps.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                current === index ? 'bg-seafoam w-6' : 'bg-seafoam/30'
+              }`}
+              onClick={() => api?.scrollTo(index)}
+            />
+          ))}
+        </div>
 
         <div className="text-center mt-12">
           <p className="text-gray-400 mb-6">
@@ -146,6 +204,17 @@ const HowItWorksSection = () => {
           </Button>
         </div>
       </div>
+
+      {/* Lightbox Dialog */}
+      <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
+        <DialogContent className="max-w-5xl bg-gaming-dark/95 border-seafoam/20 p-2">
+          <img 
+            src={lightboxImage.src} 
+            alt={lightboxImage.alt}
+            className="w-full h-auto rounded-lg"
+          />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
