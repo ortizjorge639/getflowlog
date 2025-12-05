@@ -1,8 +1,9 @@
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Play, Pause } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -18,6 +19,10 @@ const HowItWorksSection = () => {
   const [current, setCurrent] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const steps = [
     {
@@ -56,16 +61,44 @@ const HowItWorksSection = () => {
     setLightboxOpen(true);
   };
 
-  // Auto-play every 5 seconds
+  // Auto-play with progress bar
   useEffect(() => {
     if (!api) return;
 
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 5000);
+    const startProgress = () => {
+      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
+      setProgress(0);
+      
+      progressIntervalRef.current = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) return 100;
+          return prev + 2; // 50 intervals over 5 seconds (100ms each)
+        });
+      }, 100);
+    };
 
-    return () => clearInterval(interval);
-  }, [api]);
+    const startAutoPlay = () => {
+      if (autoPlayIntervalRef.current) clearInterval(autoPlayIntervalRef.current);
+      startProgress();
+      
+      autoPlayIntervalRef.current = setInterval(() => {
+        api.scrollNext();
+        startProgress();
+      }, 5000);
+    };
+
+    if (isPlaying) {
+      startAutoPlay();
+    } else {
+      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
+      if (autoPlayIntervalRef.current) clearInterval(autoPlayIntervalRef.current);
+    }
+
+    return () => {
+      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
+      if (autoPlayIntervalRef.current) clearInterval(autoPlayIntervalRef.current);
+    };
+  }, [api, isPlaying]);
 
   // Track current slide
   useEffect(() => {
@@ -178,17 +211,40 @@ const HowItWorksSection = () => {
           <CarouselNext className="border-seafoam/30 text-seafoam hover:bg-seafoam hover:text-gaming-dark -right-4 sm:-right-12" />
         </Carousel>
 
-        {/* Slide Indicators */}
-        <div className="flex justify-center gap-2 mt-6">
-          {steps.map((_, index) => (
-            <button
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                current === index ? 'bg-seafoam w-6' : 'bg-seafoam/30'
-              }`}
-              onClick={() => api?.scrollTo(index)}
+        {/* Progress Bar */}
+        <div className="max-w-4xl mx-auto mt-6 px-4">
+          <div className="h-1 bg-seafoam/20 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-seafoam to-seafoam-light transition-all duration-100 ease-linear"
+              style={{ width: `${progress}%` }}
             />
-          ))}
+          </div>
+        </div>
+
+        {/* Slide Indicators & Play/Pause */}
+        <div className="flex justify-center items-center gap-4 mt-4">
+          <div className="flex gap-2">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  current === index ? 'bg-seafoam w-6' : 'bg-seafoam/30'
+                }`}
+                onClick={() => {
+                  api?.scrollTo(index);
+                  setProgress(0);
+                }}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="w-8 h-8 rounded-full border border-seafoam/30 flex items-center justify-center text-seafoam hover:bg-seafoam hover:text-gaming-dark transition-all duration-300"
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
+            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+          </button>
         </div>
 
         <div className="text-center mt-12">
