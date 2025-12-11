@@ -36,21 +36,26 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center pt-4 transition-all duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark px-8 py-4 text-lg font-semibold rounded-full glow-effect hover:animate-glow-pulse transition-all duration-500 transform hover:scale-105"
-              onClick={() => navigate('/waitlist')}
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 transition-all duration-1000 delay-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            {/* MVP Launch CTA - Limited Time */}
+            <a 
+              href="https://flowlog-gg.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-8 py-4 rounded-full bg-gaming-dark border-2 border-seafoam/40 animate-pulse-border hover:scale-105 transition-transform duration-300 group"
             >
-              Join Waitlist
-            </Button>
+              <span className="text-lg font-bold bg-gradient-to-r from-seafoam via-seafoam-light to-seafoam bg-clip-text text-transparent flex items-center gap-2">
+                🚀 Try the MVP Now
+                <span className="text-xs px-2 py-0.5 bg-seafoam/20 rounded-full text-seafoam">Limited</span>
+              </span>
+            </a>
             <Button 
               variant="outline" 
               size="lg"
               className="border-seafoam/50 text-seafoam hover:bg-seafoam/10 hover:border-seafoam px-8 py-4 text-lg rounded-full transition-all duration-500"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/waitlist')}
             >
-              Contact Us
+              Join Waitlist
             </Button>
           </div>
         </div>
