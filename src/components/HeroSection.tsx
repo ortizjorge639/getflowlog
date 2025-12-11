@@ -44,9 +44,9 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="relative px-8 py-4 rounded-full bg-gaming-dark border-2 border-seafoam/40 animate-pulse-border hover:scale-105 transition-transform duration-300 group"
             >
-              <span className="text-lg font-bold bg-gradient-to-r from-seafoam via-seafoam-light to-seafoam bg-clip-text text-transparent flex items-center gap-2">
+              <span className="text-lg font-bold bg-gradient-to-r from-rose-400 via-fuchsia-500 via-violet-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent flex items-center gap-2">
                 🚀 Try the MVP Now
-                <span className="text-xs px-2 py-0.5 bg-seafoam/20 rounded-full text-seafoam">Limited</span>
+                <span className="text-xs px-2 py-0.5 bg-gradient-to-r from-fuchsia-500/20 to-cyan-400/20 rounded-full text-cyan-300">Limited</span>
               </span>
             </a>
             <Button 
