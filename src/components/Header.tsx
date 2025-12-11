@@ -60,7 +60,7 @@ const Header = () => {
               rel="noopener noreferrer"
               className="relative px-5 py-2 rounded-full bg-gaming-dark border border-seafoam/30 animate-pulse-border hover:scale-105 transition-transform duration-300"
             >
-              <span className="text-sm font-bold bg-gradient-to-r from-seafoam via-seafoam-light to-seafoam bg-clip-text text-transparent">
+              <span className="text-sm font-bold bg-gradient-to-r from-rose-400 via-fuchsia-500 via-violet-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                 🚀 Try MVP
               </span>
             </a>
