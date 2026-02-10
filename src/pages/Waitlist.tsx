@@ -59,12 +59,14 @@ const Waitlist = () => {
 
             <div className="text-center mt-8 pt-6 border-t border-seafoam/20">
               <p className="text-sm text-gray-400">
-                Questions? <button 
-                  onClick={() => navigate('/contact')}
+                Questions? <a 
+                  href="https://x.com/jojiguy639"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-seafoam hover:underline"
                 >
                   Contact us
-                </button>
+                </a>
               </p>
             </div>
           </Card>

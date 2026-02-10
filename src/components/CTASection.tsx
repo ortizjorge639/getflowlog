@@ -31,7 +31,7 @@ const CTASection = () => {
               variant="outline"
               size="lg"
               className="border-seafoam text-seafoam hover:bg-seafoam hover:text-gaming-dark px-8 py-4 text-lg rounded-xl transition-all duration-300"
-              onClick={() => navigate('/contact')}
+              onClick={() => window.open('https://x.com/jojiguy639', '_blank')}
             >
               Contact Us
             </Button>
