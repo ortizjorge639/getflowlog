@@ -27,26 +27,26 @@ const HowItWorksSection = () => {
   const steps = [
     {
       id: 1,
-      title: "Discover Your Next Game",
-      description: "Let Flowlog find the best matched game based on your preferences.",
+      title: "Connect Your Steam Library",
+      description: "Link your Steam account and we'll import your owned games and wishlist automatically.",
       image: "/lovable-uploads/step1-discover.png"
     },
     {
       id: 2,
-      title: "Add to Your Queue",
-      description: "Add game to your backlog or now playing queue.",
+      title: "Organize Into Decks",
+      description: "Sort games into themed decks — by genre, mood, or play style. Your backlog, your rules.",
       image: "/lovable-uploads/step2-add-game.png"
     },
     {
       id: 3,
-      title: "Organize Your Backlog",
-      description: "Organize your games backlog as you please, and complete them to add to Completed Deck.",
+      title: "Flow Through Your Backlog",
+      description: "Swipe through cards to decide: play now, save for later, or move on.",
       image: "/lovable-uploads/step3-organize.png"
     },
     {
       id: 4,
-      title: "Track & Celebrate",
-      description: "Track your backlog and completion stats on your profile, and find your next gaming journey. Celebrate!",
+      title: "Earn Stamps & Celebrate",
+      description: "Complete games to earn collectible stamps and track your progress.",
       image: "/lovable-uploads/step4-profile.png"
     }
   ];
@@ -145,7 +145,7 @@ const HowItWorksSection = () => {
             How <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">Flowlog</span> Works
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Master your gaming backlog in 4 simple steps. From discovering games to celebrating completions.
+            Go from a cluttered Steam library to an organized backlog in 4 simple steps.
           </p>
         </div>
 
@@ -189,7 +189,7 @@ const HowItWorksSection = () => {
                       
                       {step.id === 4 && (
                         <div className="mt-6 text-center">
-                          <Button 
+                          <Button
                             size="lg"
                             className="bg-gradient-to-r from-seafoam to-seafoam-light hover:from-seafoam-light hover:to-seafoam text-gaming-dark font-semibold"
                             onClick={(e) => {
@@ -197,7 +197,7 @@ const HowItWorksSection = () => {
                               triggerConfetti();
                             }}
                           >
-                            🎉 Celebrate!
+                            🏆 Celebrate!
                           </Button>
                         </div>
                       )}

@@ -12,11 +12,10 @@ const CTASection = () => {
         <Card className="p-12 bg-gradient-to-br from-gaming-dark/50 to-seafoam/20 border-seafoam/30 backdrop-blur-sm text-center space-y-8">
           <div className="space-y-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Ready to Clear Your Backlog?
+              Ready to Tame Your Steam Backlog?
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Join gamers who've transformed their gaming habits with Flowlog. 
-              Start finishing what you start.
+              Stop scrolling through your library wondering what to play. Import your games, organize your backlog, and start flowing through your collection today.
             </p>
           </div>
 
@@ -40,10 +39,15 @@ const CTASection = () => {
 
           <div className="pt-4">
             <p className="text-sm text-gray-500">
-              Interested in the development journey? 
-              <button className="text-seafoam hover:underline ml-1">
+              Interested in the development journey?
+              <a
+                href="https://x.com/jojiguy639"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-seafoam hover:underline ml-1"
+              >
                 Follow our progress
-              </button>
+              </a>
             </p>
           </div>
         </Card>

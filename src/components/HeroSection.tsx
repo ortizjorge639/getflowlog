@@ -27,12 +27,12 @@ const HeroSection = () => {
           
           {/* Tagline */}
           <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed">
-            Master Your Gaming Backlog
+            Tame Your Steam Backlog
           </p>
-          
+
           {/* Description */}
           <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto">
-            Stop drowning in unfinished games. Organize, track, and actually complete your backlog.
+            Import your Steam library, organize games into decks, and finally decide what to play next — all in under 5 minutes.
           </p>
 
           {/* CTA Buttons */}

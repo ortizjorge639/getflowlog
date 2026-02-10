@@ -18,7 +18,7 @@ const Footer = () => {
               </span>
             </h3>
             <p className="text-gray-400 max-w-xs">
-              The ultimate tool for managing and completing your gaming backlog.
+              Turn your Steam library into an organized backlog. Import, deck, flow, and finally finish your games.
             </p>
           </div>
 
@@ -40,20 +40,22 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Connect</h4>
             <div className="space-y-2">
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
-                onClick={() => navigate('/contact')}
+              <a
+                href="https://flowlog.lovable.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-left text-gray-400 hover:text-seafoam transition-colors"
               >
-                Send Feedback
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
-                onClick={() => navigate('/contact')}
+                Try the MVP
+              </a>
+              <a
+                href="https://x.com/jojiguy639"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-left text-gray-400 hover:text-seafoam transition-colors"
               >
-                Contact Developer
-              </Button>
+                Follow on X
+              </a>
             </div>
           </div>
         </div>
@@ -61,7 +63,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-seafoam/10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-gray-500 text-sm">
-            © 2024 Flowlog. Built with passion for gamers.
+            © 2025 Flowlog. Built with passion for gamers.
           </p>
           <div className="flex space-x-6">
             <Button 

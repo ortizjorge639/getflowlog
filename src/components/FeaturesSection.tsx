@@ -4,27 +4,27 @@ import { useState, useEffect } from 'react';
 
 const features = [
   {
-    title: "Smart Backlog Management",
-    description: "Organize your games by priority and completion status. Never lose track of what to play next.",
-    icon: "🎯"
+    title: "Steam Library Import",
+    description: "Connect once and your entire Steam library — owned games and wishlist — syncs automatically.",
+    icon: "🎮"
   },
   {
-    title: "Real-time Analytics",
-    description: "See your gaming metrics, completion rates, and time invested across all your games.",
-    icon: "⚡"
+    title: "Deck-Based Organization",
+    description: "Group games into custom decks by genre, mood, or any theme you want. Drag, drop, and sort your way.",
+    icon: "🃏"
   },
   {
-    title: "Early Community Features",
-    description: "Share your progress and stay motivated with fellow gamers.",
-    icon: "👥"
+    title: "Stamps & Milestones",
+    description: "Earn collectible stamps for completing games. Track streaks, build your collection, and celebrate progress.",
+    icon: "🏆"
   }
 ];
 
 const comingSoonFeatures = [
-  "Progress Tracking with visual bars",
-  "Achievement System",
-  "Cross-Platform sync",
-  "More Community Features"
+  "Multi-platform library support",
+  "Social deck sharing",
+  "Advanced game analytics",
+  "AI-powered recommendations"
 ];
 
 const FeaturesSection = () => {
@@ -59,7 +59,7 @@ const FeaturesSection = () => {
             <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent"> Conquer</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Built by gamers, for gamers. Every feature designed to help you finish what you start.
+            Built for Steam gamers with massive backlogs.
           </p>
         </div>
 
