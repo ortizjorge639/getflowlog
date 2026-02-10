@@ -50,7 +50,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               className="text-gray-300 hover:text-seafoam transition-colors hidden sm:inline-flex"
-              onClick={() => navigate('/contact')}
+              onClick={() => window.open('https://x.com/jojiguy639', '_blank')}
             >
               Contact
             </Button>
