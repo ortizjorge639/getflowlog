@@ -31,7 +31,7 @@ const Footer = () => {
                 className="w-full justify-start text-gray-400 hover:text-seafoam hover:bg-gaming-dark/50 p-0"
                 onClick={() => navigate('/waitlist')}
               >
-                Join Waitlist
+                Join the Interest Group
               </Button>
             </div>
           </div>

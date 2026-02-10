@@ -55,7 +55,7 @@ const HeroSection = () => {
               className="border-seafoam/50 text-seafoam hover:bg-seafoam/10 hover:border-seafoam px-8 py-4 text-lg rounded-full transition-all duration-500"
               onClick={() => navigate('/waitlist')}
             >
-              Join Waitlist
+              Join the Interest Group
             </Button>
           </div>
         </div>
