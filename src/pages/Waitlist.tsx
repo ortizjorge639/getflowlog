@@ -47,10 +47,10 @@ const Waitlist = () => {
           <Card className="p-8 bg-gaming-dark/50 border border-seafoam/20 backdrop-blur-sm">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold text-white mb-4">
-                Join the <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">Flowlog</span> Waitlist
+                Join the <span className="bg-gradient-to-r from-seafoam to-seafoam-light bg-clip-text text-transparent">Flowlog</span> Interest Group
               </h1>
               <p className="text-lg text-gray-300">
-                Lock in your early access to the Flowlog Beta launch today!
+                Be the first to know when new features drop and help shape what's next.
               </p>
             </div>
 
